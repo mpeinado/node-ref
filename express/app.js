@@ -1,7 +1,11 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 const port = 3000;
 
 var app = express();
+
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // set ejs as view engine
 app.set('view engine', 'ejs');
@@ -19,6 +23,11 @@ app.get('/', function(req, res){
 app.get('/contact', function(req, res){
     console.log(req.query);
     res.render('contact', {qs: req.query});
+});
+
+app.post('/contact', urlencodedParser, function(req, res){
+    console.log(req.body);
+    res.render('contact-success', {data: req.body});
 });
 
 app.get('/profile/:name', function(req, res){

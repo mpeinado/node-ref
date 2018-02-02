@@ -6,7 +6,7 @@ const port = 3000;
 
 var fs = require('fs');
 
-var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
+var myReadStream = fs.createReadStream(__dirname + '/readMe.txt', 'utf8');
 var myWriteStream = fs.createWriteStream(__dirname + '/writeMe.txt');
 
 // pipe only on readable streams
@@ -19,7 +19,7 @@ var server = http.createServer(function(req, res){
     // Response Headers - extra information 
     //  Content-type
     //  Status
-    res.writeHead(200, {'Content-type': 'text/html'});
+    res.writeHead(200, {'Content-type': 'text/plain'});
     myReadStream.pipe(res);
 });
 

@@ -6,21 +6,20 @@ const port = 3000;
 
 var fs = require('fs');
 
-var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
-var myWriteStream = fs.createWriteStream(__dirname + '/writeMe.txt');
-
-// pipe only on readable streams
-//myReadStream.pipe(myWriteStream);
 
 var server = http.createServer(function(req, res){
     console.log('Request was made ' + req.url);
 
+    var myObj = {
+        name: 'Marco',
+        job: 'Software Engineer'
+    };
     // this code bloack is triggered each time a request is fired
     // Response Headers - extra information 
     //  Content-type
     //  Status
-    res.writeHead(200, {'Content-type': 'text/html'});
-    myReadStream.pipe(res);
+    res.writeHead(200, {'Content-type': 'application/json'});
+   res.end(JSON.stringify(myObj));
 });
 
 server.listen(port, '127.0.0.1');
