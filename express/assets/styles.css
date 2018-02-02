@@ -1,0 +1,10 @@
+body{
+    background:  skyblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #fff;
+    padding: 30px;
+}
+
+li{
+    list-style: none;
+}

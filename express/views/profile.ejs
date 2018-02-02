@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background:  skyblue;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                color: #fff;
+                padding: 30px;
+            }
+
+            li{
+                list-style: none;
+            }
+        </style>
+    </head>
+    <body>
+        <% include partials/nav.ejs %>
+        <h1>Welcome <%= person %> !</h1>
+        <h2>Age <%= data.age %></h2>
+        <h2>Job <%= data.job %></h2>
+
+        <h2>Hobbies</h2>
+
+        <ul>
+            <% data.hobbies.forEach(function(item){ %>
+                <li><%= item %></li>
+            <% }) %>
+        </ul>
+
+    </body>
+
+</html>

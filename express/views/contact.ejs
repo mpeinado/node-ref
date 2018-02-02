@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link rel = "stylesheet" type = "text/css" href = "assets/styles.css" />
+    </head>
+    <body>
+        <% include partials/nav.ejs %>
+        <h1>Welcome to the Contact page !</h1>
+
+        <!-- http://localhost:3000/contact?dep=marketing&person=joe -->
+        <form id="contact-form">
+            <label for="who">Who do you want to contact?</label>
+            <input type="text" name="who" value="<%= qs.person %>"/>
+
+            <label for="department">Which Department</label>
+            <input type="text" name="department" value="<%= qs.dep %>"/>
+
+            <label for="email">Your Email</label>
+            <input type="email" name="email"/>
+
+            <input type="submit" value="submit" />
+        </form>
+    </body>
+
+</html>
